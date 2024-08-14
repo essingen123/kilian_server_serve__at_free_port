@@ -49,7 +49,7 @@
         "kind": 2,
         "importPath": "kilian_server_serve_at_free_port",
         "description": "kilian_server_serve_at_free_port",
-        "peekOfCode": "def find_free_port():\n    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:\n        s.bind((\"\", 0))\n        return s.getsockname()[1]\ndef start_server(port, server_type):\n    if server_type == \"http\":\n        from http.server import SimpleHTTPRequestHandler, HTTPServer\n        os.chdir(os.path.dirname(__file__))\n        httpd = HTTPServer((\"localhost\", port), SimpleHTTPRequestHandler)\n        print(f\"Serving on port {port} with HTTPServer...\")",
+        "peekOfCode": "def find_free_port():\n    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:\n        s.bind((\"\", 0))\n        return s.getsockname()[1]\ndef start_server(port, server_type):\n    if server_type == \"http\":\n        from http.server import SimpleHTTPRequestHandler, HTTPServer\n#        os.chdir(os.path.dirname(__file__))\n        os.chdir(os.getcwd())\n        httpd = HTTPServer((\"localhost\", port), SimpleHTTPRequestHandler)",
         "detail": "kilian_server_serve_at_free_port",
         "documentation": {}
     },
@@ -58,7 +58,7 @@
         "kind": 2,
         "importPath": "kilian_server_serve_at_free_port",
         "description": "kilian_server_serve_at_free_port",
-        "peekOfCode": "def start_server(port, server_type):\n    if server_type == \"http\":\n        from http.server import SimpleHTTPRequestHandler, HTTPServer\n        os.chdir(os.path.dirname(__file__))\n        httpd = HTTPServer((\"localhost\", port), SimpleHTTPRequestHandler)\n        print(f\"Serving on port {port} with HTTPServer...\")\n        try:\n            while True:\n                httpd.handle_request()\n        except KeyboardInterrupt:",
+        "peekOfCode": "def start_server(port, server_type):\n    if server_type == \"http\":\n        from http.server import SimpleHTTPRequestHandler, HTTPServer\n#        os.chdir(os.path.dirname(__file__))\n        os.chdir(os.getcwd())\n        httpd = HTTPServer((\"localhost\", port), SimpleHTTPRequestHandler)\n        print(f\"Serving on port {port} with HTTPServer...\")\n        try:\n            while True:\n                httpd.handle_request()",
         "detail": "kilian_server_serve_at_free_port",
         "documentation": {}
     },

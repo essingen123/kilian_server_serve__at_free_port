@@ -11,7 +11,8 @@ def find_free_port():
 def start_server(port, server_type):
     if server_type == "http":
         from http.server import SimpleHTTPRequestHandler, HTTPServer
-        os.chdir(os.path.dirname(__file__))
+#        os.chdir(os.path.dirname(__file__))
+        os.chdir(os.getcwd())
         httpd = HTTPServer(("localhost", port), SimpleHTTPRequestHandler)
         print(f"Serving on port {port} with HTTPServer...")
         try:
