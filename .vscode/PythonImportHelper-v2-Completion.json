@@ -1,0 +1,92 @@
+[
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "socket",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "socket",
+        "description": "socket",
+        "detail": "socket",
+        "documentation": {}
+    },
+    {
+        "label": "webbrowser",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "webbrowser",
+        "description": "webbrowser",
+        "detail": "webbrowser",
+        "documentation": {}
+    },
+    {
+        "label": "subprocess",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "subprocess",
+        "description": "subprocess",
+        "detail": "subprocess",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "find_free_port",
+        "kind": 2,
+        "importPath": "kilian_server_serve_at_free_port",
+        "description": "kilian_server_serve_at_free_port",
+        "peekOfCode": "def find_free_port():\n    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:\n        s.bind((\"\", 0))\n        return s.getsockname()[1]\ndef start_server(port, server_type):\n    if server_type == \"http\":\n        from http.server import SimpleHTTPRequestHandler, HTTPServer\n        os.chdir(os.path.dirname(__file__))\n        httpd = HTTPServer((\"localhost\", port), SimpleHTTPRequestHandler)\n        print(f\"Serving on port {port} with HTTPServer...\")",
+        "detail": "kilian_server_serve_at_free_port",
+        "documentation": {}
+    },
+    {
+        "label": "start_server",
+        "kind": 2,
+        "importPath": "kilian_server_serve_at_free_port",
+        "description": "kilian_server_serve_at_free_port",
+        "peekOfCode": "def start_server(port, server_type):\n    if server_type == \"http\":\n        from http.server import SimpleHTTPRequestHandler, HTTPServer\n        os.chdir(os.path.dirname(__file__))\n        httpd = HTTPServer((\"localhost\", port), SimpleHTTPRequestHandler)\n        print(f\"Serving on port {port} with HTTPServer...\")\n        try:\n            while True:\n                httpd.handle_request()\n        except KeyboardInterrupt:",
+        "detail": "kilian_server_serve_at_free_port",
+        "documentation": {}
+    },
+    {
+        "label": "open_in_browser",
+        "kind": 2,
+        "importPath": "kilian_server_serve_at_free_port",
+        "description": "kilian_server_serve_at_free_port",
+        "peekOfCode": "def open_in_browser(port):\n    url = f\"http://localhost:{port}\"\n    print(f\"Opening {url} in browser...\")\n    webbrowser.open(url, new=2)\n    if sys.platform == 'darwin':  # macOS\n        subprocess.run(['open', url])\n    elif sys.platform == 'win32':  # Windows\n        subprocess.run(['start', url], shell=True)\n    else:  # Linux\n        subprocess.run(['xdg-open', url])",
+        "detail": "kilian_server_serve_at_free_port",
+        "documentation": {}
+    },
+    {
+        "label": "print_instructions",
+        "kind": 2,
+        "importPath": "kilian_server_serve_at_free_port",
+        "description": "kilian_server_serve_at_free_port",
+        "peekOfCode": "def print_instructions(port):\n    print(f\"Server started. Access your webpage at http://localhost:{port}\")\n    print(\"Press Ctrl+C to stop the server (except for Nginx and Lighttpd).\")\ndef the_runner():\n    print(\"Choose a server type:\")\n    print(\"1. HTTPServer\")\n    print(\"2. Flask\")\n    print(\"3. Nginx\")\n    print(\"4. Lighttpd\")\n    print(\"5. Twistd\")",
+        "detail": "kilian_server_serve_at_free_port",
+        "documentation": {}
+    },
+    {
+        "label": "the_runner",
+        "kind": 2,
+        "importPath": "kilian_server_serve_at_free_port",
+        "description": "kilian_server_serve_at_free_port",
+        "peekOfCode": "def the_runner():\n    print(\"Choose a server type:\")\n    print(\"1. HTTPServer\")\n    print(\"2. Flask\")\n    print(\"3. Nginx\")\n    print(\"4. Lighttpd\")\n    print(\"5. Twistd\")\n    choice = input(\"Enter the number of your choice: \")\n    server_type = {\n        \"1\": \"http\",",
+        "detail": "kilian_server_serve_at_free_port",
+        "documentation": {}
+    }
+]
